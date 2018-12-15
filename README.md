@@ -1,10 +1,13 @@
-# Biblioteca de livros sobre Star Wars
+# Projeto sobre filmes do Star Wars
 
-Foi realizado o desenvolvimento da biblioteca para uso de estudo sobre o framework Ruby on Rails.
+Foi realizado o desenvolvimento do projeto para uso de estudo sobre o framework Ruby on Rails.
 
 ### Tecnologias
 
-Linguagem: Ruby 2.5.3
+Linguagem: Ruby 2.6
 Framework: Ruby on Rails 5.2
 
-Banco de dados: Mysql 5.7
+Banco de dados: Mysql 5.6
+
+Docker
+Docker Compose
