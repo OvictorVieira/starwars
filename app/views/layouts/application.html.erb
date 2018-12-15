@@ -12,24 +12,35 @@
   <body style="background-color: #f8f9fa;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-      <a class="navbar-brand text-dark" href="<%= root_url %>">Biblioteca Star Wars</a>
+
+      <strong><%= current_user.nil? ? 'Visitante' : current_user.username %></strong>
+
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse d-flex flex-row-reverse">
-        <% if user_signed_in? %>
-          Logado como: <strong><%= current_user.email %></strong>.
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
-          <%= link_to 'Editar perfil', edit_user_registration_path, class: 'btn btn-outline-dark' %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
-          <%= link_to "Registrar-se", new_user_registration_path, class: 'btn btn-outline-secondary'  %>
-        <% end %>
+      <% if user_signed_in? %>
+        <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Editar perfil', edit_user_registration_path, class: 'btn btn-outline-dark' %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
+        <%= link_to "Registrar-se", new_user_registration_path, class: 'btn btn-outline-secondary'  %>
+      <% end %>
       </div>
     </nav>
 
     <section class="container py-5">
+
+      <div class="d-flex justify-content-center">
+        <% if notice %>
+          <p class="w-50 alert alert-success"><%= notice %></p>
+        <% end %>
+
+        <% if alert %>
+          <p class="w-50 alert alert-danger"><%= alert %></p>
+        <% end %>
+      </div>
 
       <%= yield %>
 
