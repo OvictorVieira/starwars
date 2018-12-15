@@ -65,6 +65,8 @@ RUN set -ex \
 	&& gem install bundler --version "$BUNDLER_VERSION" --force \
 	&& rm -r /root/.gem/
 
+RUN addgroup -gid 1000 docker && adduser docker -gid 1000 --uid 1000 --disabled-password --gecos ""
+
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 RUN gem install rails -v $RAILS_VERSION
