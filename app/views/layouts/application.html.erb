@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html>
+  <html>
   <head>
-    <title>Starwarslibrary</title>
+    <title>Biblioteca Star Wars</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
-    <p class="navbar-text pull-right">
-      <% if user_signed_in? %>
-        Logado como: <strong><%= current_user.email %></strong>.
-        <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-      <% else %>
-        <%= link_to "Registrar-se", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-      <% end %>
-    </p>
-
-    <ul class="nav">
-      <li class="active"><a href="/ideas">Ideas</a></li>
-    </ul>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="background-color: #f8f9fa;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+      <a class="navbar-brand text-dark" href="<%= root_url %>">Biblioteca Star Wars</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse d-flex flex-row-reverse">
+        <% if user_signed_in? %>
+          Logado como: <strong><%= current_user.email %></strong>.
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
+          <%= link_to 'Editar perfil', edit_user_registration_path, class: 'btn btn-outline-dark' %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
+          <%= link_to "Registrar-se", new_user_registration_path, class: 'btn btn-outline-secondary'  %>
+        <% end %>
+      </div>
+    </nav>
+
+    <section class="container py-5">
+
+      <%= yield %>
+
+    </section>
+
   </body>
 </html>

@@ -1,0 +1,27 @@
+<div class="d-flex flex-column justify-content-center">
+  <h2>Alterar sua senha</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form-group">
+      <%= f.label :password, "Nova senha" %><br />
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "Confirme sua senha" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
+
+    <div class="actions pb-3">
+      <%= f.submit "Salvar alterações", class: 'btn btn-success' %>
+    </div>
+
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>
