@@ -1,0 +1,9 @@
+<% @books.each do |book| %>
+  <tr>
+    <td class="text-left"><%= book['title'] %></td>
+    <td class="text-center"><%= book['episode_id'] %></td>
+    <td class="text-center"><%= book['director'] %></td>
+    <td class="text-center"><%= book['release_date'].to_time.year %></td>
+
+  </tr>
+<% end %>

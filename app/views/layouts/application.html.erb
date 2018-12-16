@@ -22,7 +22,8 @@
       <div class="collapse navbar-collapse d-flex flex-row-reverse">
       <% if user_signed_in? %>
         <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
-        <%= link_to 'Editar perfil', edit_user_registration_path, class: 'btn btn-outline-dark' %>
+        <%= link_to 'Editar perfil', edit_user_registration_path, class: 'btn btn-outline-dark' %>&nbsp;&nbsp;
+        <%= link_to 'Listagem de Filmes', root_url, class: 'btn btn-outline-primary' %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
         <%= link_to "Registrar-se", new_user_registration_path, class: 'btn btn-outline-secondary'  %>
@@ -30,7 +31,7 @@
       </div>
     </nav>
 
-    <section class="container py-5">
+    <section class="container">
 
       <div class="d-flex justify-content-center">
         <% if notice %>
