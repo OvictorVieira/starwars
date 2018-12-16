@@ -4,7 +4,6 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.string :episode
       t.string :manager
-      t.string :country
       t.string :release_year
       t.boolean :like, null: true
       t.boolean :dislike, null: true
