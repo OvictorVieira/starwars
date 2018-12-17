@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  like: false
+  'null': 
+  dislkie: false
+  'null': 
+  user: one
+
+two:
+  like: false
+  'null': 
+  dislkie: false
+  'null': 
+  user: two

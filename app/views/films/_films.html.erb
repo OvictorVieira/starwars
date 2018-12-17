@@ -1,0 +1,18 @@
+<% @films.each do |film| %>
+  <tr class="px-2">
+    <td class="text-left"><%= film.title %></td>
+    <td class="text-center"><%= film.episode %></td>
+    <td class="text-center"><%= film.director %></td>
+    <td class="text-center"><%= film.release_date.to_time.year %></td>
+    <td class="text-center">
+      <%= link_to evaluations_path(film.id), method: :put do
+        icon('fas', 'thumbs-up', class: 'fa-2x py-3 text-primary')
+      end %>
+    </td>
+    <td class="text-center">
+      <%= link_to evaluations_path(film.id), method: :put do
+        icon('fas', 'thumbs-down', class: 'fa-2x py-3 text-dark')
+      end %>
+    </td>
+  </tr>
+<% end %>
