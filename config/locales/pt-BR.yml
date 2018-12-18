@@ -6,6 +6,7 @@ pt-BR:
     error:
       evaluation_fail: 'Falha ao realizar avaliação, tente novamente'
       update_evaluation_fail: 'Falha ao realizar atualização, tente novamente'
+      update_evaluation_exceeded: "ATENÇÃO: Você excedeu o máximo de avaliações por usuário. Para realizar uma nova avaliação, remova uma das existentes!"
   devise:
     confirmations:
       confirmed: "Seu endereço de e-mail foi confirmado com sucesso."

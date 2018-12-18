@@ -36,9 +36,17 @@
     <% end %>
 
     <td class="text-center">
-      <%= link_to destroy_evaluations_path(film_api_id: format_api_id(film['url'])), method: :delete do
-        icon('fas', 'eraser', class: 'fa-2x py-3 text-info')
-      end %>
+      <% if find_evaluation(format_api_id(film['url'])).empty? %>
+
+        <%= icon('fas', 'eraser', class: 'fa-2x py-3 text-info') %>
+
+      <% else %>
+
+        <%= link_to destroy_evaluations_path(evaluation_id: find_evaluation(format_api_id(film['url'])).ids), method: :delete do
+          icon('fas', 'eraser', class: 'fa-2x py-3 text-info')
+        end %>
+
+      <% end %>
     </td>
 
   </tr>

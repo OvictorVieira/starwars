@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resource :evaluations, only: [:index]
   post 'evaluations/:film_api_id/:evaluation' => 'evaluations#create', as: :create_evaluations
-  delete 'evaluations/:film_api_id' => 'evaluations#destroy', as: :destroy_evaluations
+  delete 'evaluations/:evaluation_id' => 'evaluations#destroy', as: :destroy_evaluations
   put 'evaluations/:film_api_id/:evaluation' => 'evaluations#update', as: :update_evaluations
 end
