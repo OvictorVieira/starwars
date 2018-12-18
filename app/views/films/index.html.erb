@@ -4,17 +4,21 @@
 
     <div class="pb-5">
       <h2>Listagem de Filmes</h2>
+      <h6>
+        <strong>Máximo de avaliações por usuário: </strong><%= max_evaluation_num %>
+      </h6>
     </div>
 
     <table class="table-responsive table-hover">
       <thead class="py-2">
         <tr>
           <th class="w-25 text-left">Título</th>
-          <th class="w-25 text-center">Episódio</th>
+          <th style="width: 15%" class="text-center">Episódio</th>
           <th style="width: 20%" class="text-center">Diretor</th>
           <th style="width: 5%" class="text-center">Lançamento</th>
           <th style="width: 15%" class="text-center">Like</th>
           <th style="width: 10%" class="text-center">Dislike</th>
+          <th style="width: 10%" class="text-center">Limpar</th>
         </tr>
       </thead>
       <tbody>

@@ -41,7 +41,11 @@
         <% end %>
 
         <% if alert || flash[:error] %>
-          <p class="w-50 alert alert-danger"><%= alert || flash[:error] %></p>
+          <p class="w-100 alert alert-danger"><%= alert || flash[:error] %></p>
+        <% end %>
+
+        <% if flash[:warning] %>
+          <p class="w-100 alert alert-warning"><%= flash[:warning] %></p>
         <% end %>
       </div>
 
