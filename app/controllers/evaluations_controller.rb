@@ -28,6 +28,18 @@ class EvaluationsController < ApplicationController
     redirect_to root_url
   end
 
+  def destroy
+    params = evaluations_params
+
+    if Evaluation.delete(params[:film_api_id])
+      flash[:success] = I18n.t(:'messages.success.update_evaluation_succes')
+    else
+      flash[:error] = I18n.t(:'messages.error.update_evaluation_fail')
+    end
+
+    redirect_to root_url
+  end
+
   private
 
   def sanitize_evaluation_params
