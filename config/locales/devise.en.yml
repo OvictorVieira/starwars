@@ -58,5 +58,5 @@ en:
       not_found: "Não encontrado"
       not_locked: "Não bloqueado."
       not_saved:
-        one: "Erro: %{resource} não foi possível realizar o salvamento."
-        other: "%{count} Erros %{resource} ao tentar salvar."
+        one: "Erro: %{Films} não foi possível realizar o salvamento."
+        other: "%{count} Erros %{Films} ao tentar salvar."

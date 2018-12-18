@@ -36,12 +36,12 @@
     <section class="container">
 
       <div class="d-flex justify-content-center">
-        <% if notice %>
-          <p class="w-50 alert alert-success"><%= notice %></p>
+        <% if notice || flash[:success] %>
+          <p class="w-100 alert alert-success"><%= notice || flash[:success] %></p>
         <% end %>
 
-        <% if alert %>
-          <p class="w-50 alert alert-danger"><%= alert %></p>
+        <% if alert || flash[:error] %>
+          <p class="w-50 alert alert-danger"><%= alert || flash[:error] %></p>
         <% end %>
       </div>
 
