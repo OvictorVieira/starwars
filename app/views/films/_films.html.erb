@@ -1,18 +1,32 @@
 <% @films.each do |film| %>
   <tr class="px-2">
-    <td class="text-left"><%= film.title %></td>
-    <td class="text-center"><%= film.episode %></td>
-    <td class="text-center"><%= film.director %></td>
-    <td class="text-center"><%= film.release_date.to_time.year %></td>
-    <td class="text-center">
-      <%= link_to evaluations_path(film.id), method: :put do
-        icon('fas', 'thumbs-up', class: 'fa-2x py-3 text-primary')
-      end %>
-    </td>
-    <td class="text-center">
-      <%= link_to evaluations_path(film.id), method: :put do
-        icon('fas', 'thumbs-down', class: 'fa-2x py-3 text-dark')
-      end %>
-    </td>
+    <td class="text-left"><%= film['title'] %></td>
+    <td class="text-center"><%= film['episode_id'] %></td>
+    <td class="text-center"><%= film['director'] %></td>
+    <td class="text-center"><%= date_format_year(film['release_date']) %></td>
+    <% if find_evaluation_by_film_api_id(format_api_id(film['url'])) %>
+      <td class="text-center">
+        <%= link_to update_evaluations_path(film_api_id: format_api_id(film['url']), evaluation: 1), method: :put do
+          icon('fas', 'thumbs-up', class: "fa-2x py-3 #{liked?(format_api_id(film['url']))}")
+        end %>
+      </td>
+      <td class="text-center">
+        <%= link_to update_evaluations_path(film_api_id: format_api_id(film['url']), evaluation: 0), method: :put do
+          icon('fas', 'thumbs-down', class: "fa-2x py-3 #{disliked?(format_api_id(film['url']))}")
+        end %>
+      </td>
+    <% else %>
+      <td class="text-center">
+        <%= link_to create_evaluations_path(film_api_id: format_api_id(film['url']), evaluation: 1), method: :post do
+          icon('fas', 'thumbs-up', class: 'fa-2x py-3 text-dark')
+        end %>
+      </td>
+      <td class="text-center">
+        <%= link_to create_evaluations_path(film_api_id: format_api_id(film['url']), evaluation: 0), method: :post do
+          icon('fas', 'thumbs-down', class: 'fa-2x py-3 text-dark')
+        end %>
+      </td>
+
+    <% end %>
   </tr>
 <% end %>
