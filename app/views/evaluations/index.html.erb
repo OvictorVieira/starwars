@@ -9,17 +9,22 @@
     <table class="table-responsive table-hover">
       <thead class="py-2">
         <tr>
+          <th style="width: 10%" class="text-left"></th>
           <th class="w-25 text-left">Título</th>
-          <th class="w-25 text-center">Episódio</th>
+          <th style="width: 15%" class="text-center">Episódio</th>
           <th style="width: 20%" class="text-center">Diretor</th>
-          <th style="width: 5%" class="text-center">Lançamento</th>
-          <th style="width: 15%" class="text-center">Like</th>
-          <th style="width: 10%" class="text-center">Dislike</th>
+          <th style="width: 5%" class="text-center">Votos</th>
         </tr>
       </thead>
-      <tbody>
-        <%= render 'evaluations' %>
-      </tbody>
+      <% if @evaluations.length > 0 %>
+        <tbody>
+          <%= render 'evaluations' %>
+        </tbody>
+      <% else %>
+        <div class="text-center mb-5">
+          <h5 class="text-danger">Nenhuma avaliação encontrada</h5>
+        </div>
+      <% end %>
     </table>
   </div>
 

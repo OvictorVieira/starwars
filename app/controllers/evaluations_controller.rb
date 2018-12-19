@@ -3,6 +3,30 @@ class EvaluationsController < ApplicationController
   before_action :sanitize_evaluation_params, only: [:create, :update]
   before_action :exceeded_amount_evaluation?, only: [:create]
 
+  def index
+    evaluations = Evaluation.order(evaluation: :desc).group(:film_api_id).count
+
+    @evaluations = []
+
+    begin
+      evaluations.each do |item|
+
+        param = "/#{item.last}/?format=json"
+
+        film = call_swapi(param)
+
+        raise unless film.success?
+
+        film['amount_votes'] = item.first
+
+        @evaluations.push(film)
+      end
+    rescue
+      @evaluations.clear
+      flash[:warning] = I18n.t(:'messages.error.call_api_error')
+    end
+  end
+
   def create
     evaluation = Evaluation.create(evaluations_params)
 
@@ -64,4 +88,5 @@ class EvaluationsController < ApplicationController
   def redirect_user
     redirect_to root_url
   end
+
 end

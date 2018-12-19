@@ -1,9 +1,17 @@
 <% @films.each do |film| %>
   <tr class="px-2">
-    <td class="text-left"><%= film['title'] %></td>
-    <td class="text-center"><%= film['episode_id'] %></td>
-    <td class="text-center"><%= film['director'] %></td>
-    <td class="text-center"><%= date_format_year(film['release_date']) %></td>
+    <td class="text-left">
+      <%= film['title'] %>
+    </td>
+    <td class="text-center">
+      <%= film['episode_id'] %>
+    </td>
+    <td class="text-center">
+      <%= film['director'] %>
+    </td>
+    <td class="text-center">
+      <%= date_format_year(film['release_date']) %>
+    </td>
 
     <% if find_evaluation_by_film_api_id(format_api_id(film['url'])) %>
 
@@ -48,6 +56,5 @@
 
       <% end %>
     </td>
-
   </tr>
 <% end %>

@@ -1,6 +1,15 @@
 class ApplicationController < ActionController::Base
+
+  include HTTParty
+
+  base_uri 'https://swapi.co/api/films'
+
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def call_swapi(params)
+    self.class.get(params)
+  end
 
   protected
 

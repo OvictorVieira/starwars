@@ -14,11 +14,17 @@ Após a execução do comando acima, seu ambiente estará pronto.
 
 Os seguintes containers serão disponibilizados:
 
-- starwars_web
-- starwars_database
-- starwars_phpadmin
+- starwars_web - Container principal
+- starwars_database - Container do Mysql
+- starwars_phpadmin - Container do SGBD
 
 # Executando o projeto dentro do container
+
+Para acessar o ambiente de desenvolvimento dentro do Container, execute o seguinte comando:
+
+``
+    $ docker exec -it starwars_web bash
+``
 
 - Instale as dependências da aplicação `` bundle install ``
 - Rode a migrations do projeto `` bundle exec rake db:migrate ``
