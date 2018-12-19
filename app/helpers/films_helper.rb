@@ -9,6 +9,6 @@ module FilmsHelper
   end
 
   def find_evaluation_by_film_api_id(film_api_id)
-    Evaluation.find_by(film_api_id: film_api_id)
+    Evaluation.find_by(film_api_id: film_api_id, user_id: current_user.id)
   end
 end
