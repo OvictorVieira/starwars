@@ -4,7 +4,9 @@ class EvaluationsController < ApplicationController
   before_action :exceeded_amount_evaluation?, only: [:create]
 
   def index
-    evaluations = Evaluation.group(:film_api_id).count(:evaluation)
+    evaluations = Evaluation.group(:film_api_id)
+                            .order('evaluation asc')
+                            .count(:evaluation)
 
     @evaluations = []
 
@@ -21,6 +23,8 @@ class EvaluationsController < ApplicationController
 
         @evaluations.push(film)
       end
+      # foi realizado este modo reverse pois o comando DESC estava ordenando de forma errada
+      @evaluations.reverse!
     rescue
       @evaluations.clear
       flash[:warning] = I18n.t(:'messages.error.call_api_error')
