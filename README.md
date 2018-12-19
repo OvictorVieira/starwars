@@ -37,3 +37,10 @@ Para acessar o ambiente de desenvolvimento dentro do Container, execute o seguin
 - Ruby 2.6
 - Ruby on Rails 5.2
 - Mysql 5.6
+- Docker
+- Docker Compose
+- Bootstrap 4
+
+# API Para consumo dos dados
+
+- [SWAPI](https://swapi.co/api) - API Star Wars
