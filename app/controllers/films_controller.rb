@@ -1,10 +1,6 @@
 class FilmsController < ApplicationController
   before_action :film_by_api, only: [:index]
 
-  include HTTParty
-
-  base_uri 'https://swapi.co/api/films?'
-
   def index
     @films = film_by_api
   end
@@ -12,18 +8,14 @@ class FilmsController < ApplicationController
   private
 
   def film_by_api
-    response = call_swapi
+    begin
+      response = call_swapi('?format=json')
 
-    raise response.response unless response.success?
+      raise unless response.success?
 
-    response['results']
-  end
-
-  def call_swapi
-    self.class.get('format=json')
-  end
-
-  def find_specific_film(film_id)
-    self.class.get(film_id)
+      response['results']
+    rescue
+      flash[:warning] = I18n.t(:'messages.error.call_api_error')
+    end
   end
 end

@@ -1,10 +1,20 @@
 <% @evaluations.each do |evaluation| %>
+
   <tr class="px-2">
-    <td class="text-left">  </td>
-    <td class="text-center">  </td>
-    <td class="text-center">  </td>
-    <td class="text-center">  </td>
-    <td class="text-center">  </td>
-    <td class="text-center">  </td>
+    <td class="text-left">
+      <%= icon('fas', 'film', class: 'fa-2x py-3 text-info') %>
+    </td>
+    <td class="text-left">
+      <%= evaluation['title'] %>
+    </td>
+    <td class="text-center">
+      <%= evaluation['episode_id'] %>
+    </td>
+    <td class="text-center">
+      <%= evaluation['director'] %>
+    </td>
+    <td class="text-center">
+      <%= evaluation['amount_votes'] %>
+    </td>
   </tr>
 <% end %>

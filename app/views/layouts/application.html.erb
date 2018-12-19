@@ -22,14 +22,22 @@
       </button>
 
       <div class="collapse navbar-collapse d-flex flex-row-reverse">
-      <% if user_signed_in? %>
-        <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
-        <%= link_to 'Editar perfil', edit_user_registration_path, class: 'btn btn-outline-dark' %>&nbsp;&nbsp;
-        <%= link_to 'Listagem de Filmes', root_url, class: 'btn btn-outline-primary' %>
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' do
+            icon('fas', 'sign-out-alt')
+          end %>&nbsp;&nbsp;&nbsp;
+
+          <%= link_to edit_user_registration_path, class: 'btn btn-outline-dark' do
+            icon('fas', 'user-edit')
+          end%>&nbsp;&nbsp;
+
+          <%= link_to 'Filmes Mais Votados', list_evaluations_url, class: 'btn btn-outline-info' %>&nbsp;&nbsp;
+
+          <%= link_to 'Listagem de Filmes', root_url, class: 'btn btn-outline-success' %>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
-        <%= link_to "Registrar-se", new_user_registration_path, class: 'btn btn-outline-secondary'  %>
-      <% end %>
+          <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-success'  %>&nbsp;&nbsp;&nbsp;
+          <%= link_to "Registrar-se", new_user_registration_path, class: 'btn btn-outline-secondary'  %>
+        <% end %>
       </div>
     </nav>
 
