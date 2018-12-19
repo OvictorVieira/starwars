@@ -4,20 +4,20 @@ class EvaluationsController < ApplicationController
   before_action :exceeded_amount_evaluation?, only: [:create]
 
   def index
-    evaluations = Evaluation.order(evaluation: :desc).group(:film_api_id).count
+    evaluations = Evaluation.group(:film_api_id).count(:evaluation)
 
     @evaluations = []
 
     begin
       evaluations.each do |item|
 
-        param = "/#{item.last}/?format=json"
+        param = "/#{item.first}/?format=json"
 
         film = call_swapi(param)
 
         raise unless film.success?
 
-        film['amount_votes'] = item.first
+        film['amount_votes'] = item.last
 
         @evaluations.push(film)
       end
