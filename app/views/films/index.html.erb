@@ -22,7 +22,7 @@
         </tr>
       </thead>
 
-      <% if @films.length > 0 %>
+      <% if !@films.nil? %>
         <tbody>
           <%= render 'films' %>
         </tbody>
