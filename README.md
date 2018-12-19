@@ -27,6 +27,7 @@ Para acessar o ambiente de desenvolvimento dentro do Container, execute o seguin
 ``
 
 - Instale as dependências da aplicação `` bundle install ``
+- Rode o comando para criação dos bancos de dados `` bundle exec rake db:create ``
 - Rode a migrations do projeto `` bundle exec rake db:migrate ``
 - Rode o servidor `` bundle exec puma -p 3000 ``
 - Abra seu navegador `` http://localhost:3000 ``
