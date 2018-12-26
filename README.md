@@ -2,6 +2,13 @@
 
 Este projeto possui uma pasta chamada "docker", dentro desta tem um arquivo chamado docker-compose.yml que é responsável por construir o ambiente de desenvolvimento completo para o projeto.
 
+# Instalar o Docker e Docker-Compose
+
+Para utilizar o ambiente que foi projetado utilizando o docker, é necessário que tenha instalado em sua maquina o `docker` e `docker-compose`, assim, evitando quaisquer conflitos e dificuldades em executar o ambiente.
+
+- [Instalar Docker](https://docs.docker.com/install/)
+- [Instalar Docker-Compose](https://docs.docker.com/compose/install)
+
 # Utilizando o Docker
 
 Ao clonar o projeto, basta acessar a pasta `docker` e executar o comando abaixo:
