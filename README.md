@@ -6,8 +6,8 @@ Este projeto possui uma pasta chamada "docker", dentro desta tem um arquivo cham
 
 Para utilizar o ambiente que foi projetado utilizando o docker, é necessário que tenha instalado em sua maquina o `docker` e `docker-compose`, assim, evitando quaisquer conflitos e dificuldades em executar o ambiente.
 
-- [Instalar Docker](https://docs.docker.com/install/)
-- [Instalar Docker-Compose](https://docs.docker.com/compose/install)
+- [Instalar Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce)
+- [Instalar Docker-Compose](https://docs.docker.com/compose/install/#install-compose)
 
 # Utilizando o Docker
 
